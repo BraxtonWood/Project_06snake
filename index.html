@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+
+</head>
+<body>
+    
+    <img id="image" src="PngItem_4163758.png" alt="snake img">
+   
+    
+    <h1>Snake</h1>
+    <h3>Score:</h3>
+    <h2 id="score"></h2>
+    <div id="interface">
+        <button id="reset" type="button">Click to Reset or Apply changes</button>
+        <button id="start">Click to Start or Pause</button>
+        <form>Grid Size
+            <select id ="gridSize">
+                <option value="12">Small</option>
+                <option value="16">Medium</option>
+                <option value="20">Large</option>
+            </select>
+        </form>
+        <form>Select Speed:
+            <select id="selectSpeed">
+                <option value="slow">Slow</option>
+                <option value="medium">Medium</option>
+                <option value="fast">Fast</option>
+            </select>
+        </form>
+        <h3 id="gameOver" class="messageOff">GAME OVER!!!</h3>
+    </div>
+    <div id="gameBoard">
+        <table id="table">
+    </div>    
+    </table>
+
+
+    
+    
+</body>
+<script src="app.js"></script>
+</html>
