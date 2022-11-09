@@ -18,7 +18,6 @@ body{
     margin-right:auto;
     z-index:0;
 }
-
 h1{
     font-size: 50px;
     color:rgb(128, 44, 44);
@@ -30,7 +29,6 @@ h2,h3{
     padding:5px;
     margin-top:5px;
 }
-
 #interface{
     display:flex;
     flex-direction: column;
@@ -49,14 +47,12 @@ table{
     border-collapse:collapse;
     background-color: grey;
 }
-
 td{
     background-color: grey;
     width:15px;
     height:15px;
     padding: 0px;
 }
-
 
 
 .boundry{

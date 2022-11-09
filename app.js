@@ -4,22 +4,14 @@ let startButton = document.getElementById("start");
 let scoreNode = document.getElementById("score");
 let score=0;
 let gridSize = Math.floor(document.getElementById("gridSize").value);
-
-console.log(gridSize);
 let onOff = "off"
-
 let speed = null
-
 let snake = {}
 let direction = "left"
 let runClock = null
 let reset = document.getElementById("reset");
-console.log(reset);
 reset.addEventListener("click",resetGame);
 startButton.addEventListener("click",startPause);
-
-
-//let table=document.getElementById("table");
 let tdEdit = document.getElementsByTagName("td");
 function selectSpeedFunc(){
     let selectSpeed = document.getElementById("selectSpeed").value;
@@ -45,7 +37,6 @@ function buildTable(){
         let tr = document.createElement("tr");
         for(let j = 0; j<x; j++){
             let td = document.createElement("td")
-            
             tr.appendChild(td);
         }
         table.appendChild(tr);
@@ -68,19 +59,14 @@ function buildTable(){
 
 initialize();
 
-
 function initialize(){
     buildTable();
     
     snake = {
         body: []
-    
-    
     }
 
     onOff = "off";
-
-   // speed = 250;
 
     center = (Math.floor((gridSize*gridSize/2)+(gridSize/2)));
 
@@ -95,19 +81,9 @@ function initialize(){
     overMessage.className="messageOff";
 
     score = 0
-
-
-
 }
 
-
-
-
-
-
-
 function snakeMove(){
-    
     
     let current = snake.body[0];
     //console.log(current);
@@ -115,13 +91,11 @@ function snakeMove(){
     //console.log(end);
     if(direction === "left"){
         current -= 1;
-        
         snakeCheck(current,end);
         snake.body.unshift(current);
         tdEdit[current].className="snake";
     }else if(direction === "right"){
         current += 1;
-        
         snakeCheck(current,end);
         snake.body.unshift(current);
         tdEdit[current].className="snake";
@@ -136,12 +110,8 @@ function snakeMove(){
         snakeCheck(current,end);
         tdEdit[current].className="snake";
     }
-    //console.log(current, "head after move");
-    //console.log(snake.body)
     tdEdit[end].className="";
-    
 }
-
 
 function snakeCheck(current,end){
     if(tdEdit[current].className===("snake")){
@@ -153,27 +123,19 @@ function snakeCheck(current,end){
         end;
     }else if(tdEdit[current].className===""){
         snake.body.pop();
-        //score=snake.body.length
-        
-        
     }
 }
 
-
 function newFood(){
     let placement = Math.floor(Math.random()*gridSize*gridSize);
-    //console.log(tdEdit[placement-1].className)
     if(tdEdit[placement-1].className===""){
         tdEdit[placement-1].className="food";
         score++;
         scoreNode.innerText=score;
     }else{
-        
         newFood();
     }
-    //console.log(placement,"food Placement");
 }
-
 
 function gameOver(){
     clearInterval(runClock);
@@ -181,21 +143,12 @@ function gameOver(){
     overMessage.className="messageOn"
 
 }
-//.pop
-//setInterval(function, milliseconds);
-//clearInterval(timerVariable);
-
 
 function resetGame(){
-    //console.log("reset")
-    //console.log(gameBoard);
-    //gameBoard.removeChild(table);
     while (gameBoard.firstChild){
         gameBoard.removeChild(gameBoard.firstChild);
     }
     initialize();
-    //console.log(speed);
-
 }
 
 function startPause(){
@@ -211,8 +164,6 @@ function startPause(){
 }
 
 document.onkeydown = function (event){
-    //console.log("keypress");
-    
     switch (event.keyCode){
         case 37:
             direction = "left";
@@ -225,10 +176,6 @@ document.onkeydown = function (event){
             break;
         case 40:
             direction = "down";
-            break;
-        case 32:
-               
-            //startPause();
+            break;        
     }
-    //console.log(direction);
 }
